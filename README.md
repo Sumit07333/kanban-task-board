@@ -1,81 +1,88 @@
 # 🚀 Kanban Task Board (Sprint 05)
 
-A professional, Trello-style **Kanban Task Board** built with **React**, **Vite**, **Tailwind CSS**, and **@dnd-kit**. Designed to manage sprint deliverables, organize workflow pipelines, and persist user state seamlessly in `localStorage`.
+A professional, Trello-style **Kanban Task Board** built with **React**, **Vite**, **Tailwind CSS**, and **@dnd-kit**. It helps users organize tasks across workflow stages with drag-and-drop interactions, inline editing, search, filtering, and automatic persistence using `localStorage`.
 
 ---
 
-## 🌟 Key Features
+## 🌐 Live Demo
 
-### 📋 Core Task Management
+- **🔗 Live Application:** https://kanban-task-board-seven-ashen.vercel.app/
+- **💻 GitHub Repository:** https://github.com/Sumit07333/kanban-task-board
 
-- **Task Creation**: Add tasks with titles and configurable priority levels (_High_, _Medium_, _Low_).
-- **Automated Column Assignment**: All newly created tasks land in the **To Do** column with unique generated IDs.
-- **Task Deletion**: Immediate task removal with real-time state and storage synchronization.
-- **Inline Task Editing**: Edit titles and priorities directly on task cards with keyboard shortcuts (`Enter` to save, `Esc` to cancel).
-- **Movement Controls**:
-  - `To Do` ➔ `In Progress`
-  - `In Progress` ➔ `Done` or `To Do`
-  - `Done` ➔ `In Progress`
+---
 
-### 🎨 Priority System
+## ✨ Features
 
-- Visual indicators on every card:
-  - **High Priority**: Red accent border & badge
-  - **Medium Priority**: Amber accent border & badge
-  - **Low Priority**: Emerald accent border & badge
+### 📋 Task Management
 
-### 🎯 Drag & Drop Pipeline
+- ➕ Create new tasks with configurable priority levels (High, Medium, Low)
+- ✏️ Edit task title and priority inline
+- 🗑️ Delete tasks instantly
+- 🚚 Move tasks between workflow columns
+- 🆔 Automatic unique ID generation for every task
 
-- Drag cards across columns or reorder within a column using `@dnd-kit`.
-- Smooth physics, touch support, and celebratory confetti trigger upon completing tasks in **Done**.
+### 🎯 Drag & Drop
 
-### 🔍 Real-Time Global Search & Filters
+- Smooth drag-and-drop powered by **@dnd-kit**
+- Move tasks seamlessly between Kanban columns
+- Touch-friendly interactions
+- 🎉 Confetti animation when a task reaches the **Done** column
 
-- Live query search across task titles and priorities simultaneously.
-- Priority filter dropdown (_All_, _High_, _Medium_, _Low_).
-- Empty state fallbacks when no matching tasks are found.
+### 🔍 Search & Filtering
 
-### 💾 Data Persistence & UX
+- Live task search
+- Filter tasks by priority
+- Empty-state UI when no matching tasks are found
 
-- Automatic synchronization with browser `localStorage`.
-- Includes initial seed tasks for instant first-time hydration.
-- Responsive design for Desktop, Laptop, Tablet, and Mobile devices.
-- Dark / Light mode theme switcher.
+### 🎨 User Experience
+
+- 🌙 Dark / Light Mode
+- 📱 Fully Responsive Design
+- 💾 Automatic localStorage persistence
+- 🚀 Fast React + Vite performance
+- 📊 Statistics dashboard with task counts
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Drag & Drop**: [@dnd-kit/core](https://dndkit.com/), [@dnd-kit/sortable](https://dndkit.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Effects**: [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti)
+| Technology      | Purpose              |
+| --------------- | -------------------- |
+| React 19        | Frontend Framework   |
+| Vite            | Build Tool           |
+| Tailwind CSS v4 | Styling              |
+| @dnd-kit        | Drag & Drop          |
+| Lucide React    | Icons                |
+| Canvas Confetti | Completion Animation |
 
 ---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
+```text
 src/
 ├── components/
-│ ├── Board.jsx # Column grid & DnD context container
-│ ├── Column.jsx # Droppable column wrapper (To Do, In Progress, Done)
-│ ├── TaskCard.jsx # Individual sortable task item with inline editing
-│ ├── TaskInput.jsx # Creation form with title validation
-│ ├── SearchBar.jsx # Query search and priority filter bar
-│ ├── StatsSummary.jsx # Analytics header & sprint completion bar
-│ ├── Navbar.jsx # Branding, reset board, and dark mode toggle
-│ ├── Footer.jsx # App footer and tech badges
-│ └── NotificationToast.jsx # Feedback toast notifications
+│   ├── Board.jsx
+│   ├── Column.jsx
+│   ├── Footer.jsx
+│   ├── Navbar.jsx
+│   ├── NotificationToast.jsx
+│   ├── SearchBar.jsx
+│   ├── StatsSummary.jsx
+│   ├── TaskCard.jsx
+│   └── TaskInput.jsx
+│
 ├── hooks/
-│ └── useLocalStorage.js # State sync with localStorage
+│   └── useLocalStorage.js
+│
 ├── utils/
-│ ├── constants.js # Columns, priorities, and default tasks
-│ └── helpers.js # ID generator, formatters, and status logic
-├── App.jsx # Master state owner & component orchestrator
-├── main.jsx # React entry point
-└── index.css # Tailwind CSS imports
+│   ├── constants.js
+│   └── helpers.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
 
 ---
 
@@ -83,41 +90,72 @@ src/
 
 ### Prerequisites
 
-- Node.js (v18.0.0 or higher)
-- npm or yarn
+- Node.js 18 or higher
+- npm
 
-### Installation & Local Run
+### Installation
 
 ```bash
-# 1. Install dependencies
+git clone https://github.com/Sumit07333/kanban-task-board.git
+
+cd kanban-task-board
+
 npm install
 
-# 2. Start development server
 npm run dev
+```
 
-# 3. Build for production
+Open your browser and visit:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 📦 Build for Production
+
+```bash
 npm run build
 ```
 
 ---
 
-## 📦 Vercel Deployment
+## ☁️ Deploy on Vercel
 
-This project is pre-configured for zero-config Vercel deployment:
+This project is ready for deployment on **Vercel**.
 
-1. Push repository to GitHub.
-2. Import repository into [Vercel](https://vercel.com).
-3. Select **Vite** as framework preset and click **Deploy**.
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Select the **Vite** framework preset.
+4. Click **Deploy**.
 
 ---
 
-## 📹 QA Demonstration Checklist
+## 🧪 QA Checklist
 
-When presenting or reviewing this application:
+- ✅ Create Task
+- ✅ Edit Task
+- ✅ Delete Task
+- ✅ Move Task Between Columns
+- ✅ Drag & Drop
+- ✅ Search Tasks
+- ✅ Filter by Priority
+- ✅ Dark / Light Mode
+- ✅ Responsive Layout
+- ✅ localStorage Persistence
+- ✅ Confetti on Task Completion
 
-1. **Add Task**: Type a title, choose "High", click "Add Task". Verify it appears in "To Do".
-2. **Move Task**: Click the "Move" button on a card to shift it from "To Do" ➔ "In Progress" ➔ "Done".
-3. **Drag & Drop**: Grab a card's drag handle and drop it into another column or reorder.
-4. **Inline Edit**: Click the pencil icon on a card, update text, press Enter or click Save.
-5. **Search & Filter**: Type a keyword in SearchBar or pick "High Priority" in the filter.
-6. **Persistence**: Refresh the browser page; verify all tasks, edits, and states remain intact.
+---
+
+## 👨‍💻 Author
+
+**Sumit Kumar**
+
+- GitHub: https://github.com/Sumit07333
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
