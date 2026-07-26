@@ -1,0 +1,6 @@
+{
+  "name": "Kanban Task Board",
+  "description": "A Trello-style Kanban Task Board built with React, Vite, Tailwind CSS, drag and drop, inline editing, search, priorities, and local storage persistence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
